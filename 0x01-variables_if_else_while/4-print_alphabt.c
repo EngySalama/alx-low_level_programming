@@ -18,7 +18,7 @@ while (ch <= 'z')
 if (ch == 'e' || ch == 'q')
 
 ch++;
-	putcher(ch);
+	putchar(ch);
 	ch++;
 }
 
