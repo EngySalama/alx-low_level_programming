@@ -5,7 +5,7 @@
  * jack_bauer-prints every minute of the day
 */
 
-viod jack_bauer(void)
+void jack_bauer(void)
 {
 	int min, hr;
 
