@@ -15,7 +15,7 @@ int islower(char c)
 /**
  * isDelimiter - determines whether ascii is a delimiter
  * @c: character
- * Return: 1 if true, 0 it false
+ * Return: 1 if true, 0 if false
 */
 
 int isDelimiter(char c)
