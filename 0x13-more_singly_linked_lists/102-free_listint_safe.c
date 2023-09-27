@@ -4,11 +4,11 @@
  * free_listint_safe - frees a linked list
  * @h: pointer to the first node in the linked list
  *
- * Return: number of elements in the freed list
+ * Return: number of the elements in the freed list
  */
 size_t free_listint_safe(listint_t **h)
 {
- size_t len = 0;
+ size_t x = 0;
  int diff;
  listint_t *temp;
 
@@ -23,19 +23,19 @@ size_t free_listint_safe(listint_t **h)
  temp = (*h)->next;
  free(*h);
  *h = temp;
- len++;
+ x++;
  }
  else
  {
  free(*h);
  *h = NULL;
- len++;
+ x++;
  break;
  }
  }
 
  *h = NULL;
 
- return (len);
+ return (x);
 }
 
