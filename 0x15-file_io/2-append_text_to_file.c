@@ -1,38 +1,37 @@
-i#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
-int append_text_to_file(const char *filename, char *text_content) {
-    if (filename == NULL || text_content == NULL) {
-        return -1; // Return -1 for invalid arguments
-    }
+/**
+ * append_text_to_file - that appends text at the end of a file
+ * @filename: variable pointer
+ * @text_content: content file
+ * Description: function that appends text at the end of a file
+ * Return: 1 on success, -1 on failure
+ */
 
-    FILE *file = fopen(filename, "a"); // Open the file in append mode
+int append_text_to_file(const char *filename, char *text_content)
+{
+	int i = 0, file;
 
-    if (file == NULL) {
-        return -1; // Return -1 if the file couldn't be opened
-    }
+	if (filename == NULL)
+		return (-1);
 
-    if (fputs(text_content, file) == EOF) {
-        fclose(file);
-        return -1; // Return -1 for a write error
-    }
+	if (text_content == NULL)
+		text_content = "";
 
-    fclose(file);
-    return 1; // Return 1 on success
+
+	while (text_content[i] != '\0')
+	{
+		i++;
+	}
+
+	file = open(filename, O_WRONLY | O_APPEND);
+
+	if (file == -1)
+		return (-1);
+
+	write(file, text_content, i);
+
+	return (1);
 }
-
-int main() {
-    const char *filename = "example.txt";
-    char *text_to_append = "This is some new content to append to the file.";
-
-    int result = append_text_to_file(filename, text_to_append);
-
-    if (result == 1) {
-        printf("Text appended to the file successfully.\n");
-    } else {
-        printf("Failed to append text to the file.\n");
-    }
-
-    return 0;
-}
-
